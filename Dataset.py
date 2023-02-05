@@ -20,9 +20,11 @@ class DataSet(torch.utils.data.Dataset):
         else:
             self.transform = transforms.Compose([transforms.Resize([width, height], interpolation=2),
                                                  transforms.ToTensor()])
-    def __len__(self):
+   
+def __len__(self):
         return len(self.IDs)
 
+    
     def __getitem__(self, idx):
         img = Image.open(self.path + self.set + '\\' + self.IDs[idx])
         label = self.labels[idx]
