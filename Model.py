@@ -453,23 +453,3 @@ class AtNet(nn.Module):
         x = x.view(x.size(0), -1)
         x = self.fc(x)
         return x
-
-
-from thop import profile
-if __name__ == '__main__':
-    #model = ViT(image_size=64, patch_size=8, num_classes=5, dim=256, depth=10, heads=32, mlp_dim=512, dropout=0.1, emb_dropout=0.1)
-    #model = ViT(image_size=64, patch_size=8, num_classes=5, dim=256, depth=10, heads=32, mlp_dim=512, dropout=0.1, emb_dropout=0.1)
-    #model = MbNet(num_classes=5)
-    model = AtNet(BottleNeck, [3, 4, 6, 3], num_classes=5)
-    input = torch.randn(1, 3, 64, 64)
-    flops, params = profile(model, inputs=(input,))
-
-    print(flops/1e9, params/1e6)
-    out=model(input)
-    print(out.size())
-#net = ViT(image_size=64, patch_size=8, num_classes=4, dim=512, depth=4, heads=16, mlp_dim=1024, dropout=0.1, emb_dropout=0.1)
-#input = torch.randn(8, 3, 64, 64)
-#out = net(input)
-
-
-
