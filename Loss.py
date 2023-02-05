@@ -42,3 +42,4 @@ class Focal(nn.Module):
         lossB = -torch.pow(output, gamma) * (1 - target) * outputB
         loss = lossF + lossB
         return loss.sum(dim=1)
+    
