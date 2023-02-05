@@ -3,7 +3,7 @@ import numpy
 from Tools import DeviceInitialization, DataReading
 from Dataset import DataSet
 from torch.utils.data import DataLoader
-from Model import ResNet18, ResNet50, ViT
+from Model import ViT
 from Loss import Loss
 import time
 import math
